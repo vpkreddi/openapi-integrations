@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "60fee0d2-7b5e-4fc0-9725-e1f7383af572",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-country-codes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(var i=0;i<jsonData.length;i++){",
+							"        console.log(jsonData[i].callingCodes[0]);",
+							"    }",
+							"  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/all?fields=name;callingCodes;alpha2Code",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"all"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "name;callingCodes;alpha2Code"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/all",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-phone-number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "numbers",
+							"value": "91-6300344326",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/validate/phoneNumbers?numbers=91-734",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"validate",
+						"phoneNumbers"
+					],
+					"query": [
+						{
+							"key": "numbers",
+							"value": "91-734"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
